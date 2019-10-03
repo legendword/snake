@@ -1,0 +1,867 @@
+/* code for set up a new file with this css:
+
+<!DOCTYPE HTML>
+<html>
+<title></title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="http://legendword.com/files/style.css" />
+<script src="http://legendword.com/files/ljs.js"></script>
+<script src="http://legendword.com/files/jquery-1.11.3.js"></script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+*/
+
+/* other codes:
+ //font awesome
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ //bootstrap
+<link rel="stylesheet" href="http://legendword.com/bootstrap/css/bootstrap.min.css">
+<script src="http://legendword.com/files/bootstrap.js"></script>
+ //zeroclipboard
+<script src="http://legendword.com/files/zclip/dist/ZeroClipboard.js"></script>
+ //PACE.js page load bar
+<script src="http://legendword.com/files/pace.js"></script>
+ //AlertifyJS
+<script src="http://legendword.com/files/alertifyjs/alertify.min.js"></script>
+<link rel="stylesheet" href="http://legendword.com/files/alertifyjs/css/alertify.min.css">
+<link rel="stylesheet" href="http://legendword.com/files/alertifyjs/css/themes/default.min.css">
+
+addtoany share:
+
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share_save"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+<a class="a2a_button_baidu"></a>
+<a class="a2a_button_email"></a>
+<a class="a2a_button_evernote"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+
+counter:
+<!-- counter --><script>var cid = 0;//page id</script><script src="http://legendword.com/files/count.js"></script>
+
+*/
+
+
+
+/* font family: */
+body {font-family: Verdana, 'Lucida Sans', Calibri, Helvetica, Arial, sans-serif;}
+p, h1, h2, h3, h4, h5, h6 {font-family: Verdana, 'Lucida Sans', Calibri, Helvetica, Arial, sans-serif;}
+p {font-family: Verdana, 'Lucida Sans', Calibri, Helvetica, Arial, sans-serif;}
+.light {font-family: San-Light;}
+p.div {font-family: San-Light;}
+.space {font-family: L-Space;}
+.slim {font-family: Slim Joe;}
+.pre {font-family:monospace;}
+@font-face {
+font-family: San-Light;
+src: url('http://legendword.com/files/font/Sansation_Light.ttf'),
+     url('http://legendword.com/files/font/Sansation_Light.eot'); /* IE9+ */
+}
+@font-face {
+font-family: L-Space;
+src: url('http://legendword.com/files/font/L_Space.ttf');
+}
+@font-face {
+font-family: Slim Joe;
+src: url('http://legendword.com/files/font/Slim_Joe.otf');
+}
+
+/* put the text to anywhere in the page: */
+.left {text-align:left;} 
+.center {text-align:center;} 
+.right {text-align:right;} 
+.fleft {float:left;}
+.fcenter {float:center;}
+.fright {float:right;}
+.abcenter {position: fixed; top: 0; left: 0; bottom: 0; right: 0; margin: auto; width: 300px; height: 250px;}
+.corner_l {position:absolute; bottom:0px; left:0px; z-index:100;}
+.corner_r {position:relative; bottom:0px; right:0px; z-index:100;}
+
+
+
+/* link settings: */
+a:link {color:#00BFFF;}		/* unvisited link */
+a:visited {color:#2E9AFE;}	/* visited link */
+a:hover {color:#FFBF00;}	/* mouse over the link */
+a:active {color:#FF0000;}	/* on-click  link */
+
+
+
+/* header, footer and menu settings: */
+div.header {background-color:#FFFFFF;}
+div.menu {background-color:#EAFBF3; height:200px; width:100px; float:left;}
+div.content {background-color:#FFFFFF; height:200px; width:400px; float:left;}
+div.footer {background-color:#FFFFFF; clear:both; text-align:right;}
+li.normal {display: list-item;list-style:disc outside none;}
+li {list-style:none; margin-left:5px;}
+
+
+/* -----
+    Name:         Pagex
+    Author:       Legendword
+    Version:      1.0
+    description:  for specific pages that needs special css settings such as headers and footers
+   -----
+*/
+
+.aaa {display:inline;}
+.aab {display:inline; width:100px; height:20px;}
+.aac {display:inline; width:90px; height:20px; border: 2px solid pink;}
+.aad {color:#FF00FF;}
+.aae {position: absolute; left: 0px; top: 0px; width: 100px; height: 150px; border: 2px solid yellow;}
+.aaf {position:absolute; left:110px; top:0px; display:inline; border: 3px solid green;}
+.aag {display:inline; text-align:right; position:absolute; right:0px; top:0px;}
+.aah {display:inline; width:90px; height:20px; border: 2px solid orange;}
+.aai {display:inline; text-align:right; position:absolute; right:0px; top:30px;}
+.aaj {position:absolute; left:5px; bottom:10px;}
+.aak {position:absolute; left:110px; top:10px; display:inline;}
+.aal {position:absolute; right:2px; bottom:10px;}
+.aam {position:absolute; right:85px; bottom:10px;}
+.aan {text-align:center;}
+.aao {position:absolute; top:500px; text-align:center;}
+.aap {position:absolute; left:450px; top:100px; text-align:center; width:150px; height:300px; border: 2px solid green;}
+.aaq {position:absolute; left:620px; top:100px; text-align:left; width:150px; height:300px; border: 2px solid purple;}
+.aar {position:absolute; left:790px; top:100px; text-align:left; width:200px; height:300px; border: 2px solid orange;}
+.aas {position:absolute; left:230px; top:100px; width:200px; height:300px; border: 2px solid blue;}
+.aat {position:absolute; left:10px; bottom:40px;}
+.aau {position:absolute; left:230px; top:430px; width:800px; height:80px;}
+.aav {border-color:#ADFFF3; background-color:#ADFFF3; -webkit-animation-name: bg1; -webkit-animation-duration: 20s; animation-name: bg1; animation-duration: 20s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;}
+.aaw {background-color:#F84BFE; border-radius: 6px;}
+.aax {position:absolute; left:10px; top:180px;}
+.aay {position:absolute; left:10px; top:220px;}
+.aaz {position: fixed; top: 0; left: 0; bottom: 0; right: 0; margin: auto; width: 300px; height: 250px; background-color:#F7F7F7; border: 2px solid #E3E6E5; border-radius: 5px; z-index:5;}
+.aba {position:fixed; top:0; width:100%; height: 70px; background-color:#F6F7F5; }
+input.abb {border-radius:0px; width:60%; height:50px; margin:5px; font-size:30px;}
+input.abbm {border-radius:0px; width:100%; height:50px; margin:5px; font-size:30px;}
+button.abc {border-radius:5px; width:5%; height:50px; margin:5px; font-size:30px; background-color:#F6F7F5; border-color:#DCDCDB;}
+label.abd {height:40px; width:20%;}
+.abe {height:70%; height:100%;}
+iframe.abf {border:none;}
+abg {position: fixed; top: 0; left: 0; bottom: 0; right: 0; margin: auto; width: 350px; height: 250px;}
+.abh {height:250px; width:98%; background-color:#DAD9D8; border-radius:8px;}
+.abi {float:left; font-family:San-Light; width:50%; display:inline;}
+input.abj {height:70px; width:90%; font-size:30px; z-index:1000;}
+textarea.abk {height:500px; width:100%; font-size:26px; z-index:800; font-family:monospace;}
+.abl {position:absolute; top:25%; text-align:center; font-color:#fff; width:100%;}
+
+
+.baa {position:absolute; left:5px; top:35px; width:150px; height:300px; border: 2px solid yellow;}
+.bab {position:absolute; left:165px; top:35px; width:150px; height:300px; border: 2px solid yellow;}
+.bac {position:absolute; left:325px; top:35px; width:150px; height:300px; border: 2px solid yellow;}
+.baz {position:absolute; left:5px; bottom:5px;}
+
+.caa {width: 100px; height: 100px; background-color: red; position: relative; -webkit-animation-name: example; -webkit-animation-duration: 4s; animation-name: example; animation-duration: 4s;}
+.cab {width:200px; height:200px; background-color:red; -webkit-animation-name: bg; -webkit-animation-duration: 10s; animation-name: bg; animation-duration: 10s;}
+.cac {background-color:#ADFFF3; -webkit-animation-name: bg1; -webkit-animation-duration: 20s; animation-name: bg1; animation-duration: 20s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;}
+
+.maa {position:absolute; left:150px; top:100px; width:200px; height:300px; border: 2px solid blue;}
+.mab {position:absolute; left:370px; top:100px; text-align:center; width:150px; height:300px; border: 2px solid green;}
+.mac {position:absolute; left:540px; top:100px; text-align:left; width:150px; height:300px; border: 2px solid purple;}
+.mad {position:absolute; left:710px; top:100px; text-align:left; width:200px; height:300px; border: 2px solid orange;}
+
+.mc-content {position:absolute; left:0px; float:left; width:75%; margin-left:1%;}
+.mc-menu {position:absolute; right:0px; margin-right:4%; width:20%;}
+
+.share-header {position:absolute; top:0px; height:70px; width:100%; background-color:#F4F4F4; margin-left:5px;}
+.share-download {background-color:#5AFF7E; border:none; height:50px; width:120px; color:#F4F4F4; font-size:20px; border-radius:5px; margin-top:10px; margin-bottom:10px; font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif; transition: all 300ms ease-in-out 0s; text-align:center;}
+.share-download:hover {background-color:#F4F4F4; color:#5AFF7E;}
+.share-copy {background-color:#5AE2FF; border:none; height:50px; width:150px; color:#F4F4F4; font-size:20px; border-radius:5px; margin-top:10px; margin-bottom:10px; font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif; transition: all 300ms ease-in-out 0s; text-align:center;}
+.share-copy:hover {background-color:#F4F4F4; color:#5AE2FF;}
+
+/* End of "Pagex"
+============================== */
+
+
+
+/* more div settings: */
+a.ios {text-decoration: none;color: #007aff; outline: 0;}
+.cursor-diamond {cursor: url("http://legendword.com/files/img/Diamond_Sword.cur"), auto;}
+.cursor-pointer {cursor: pointer;} .cursor-default {cursor: default;} .cursor-loading {cursor: process, wait;} .cursor-none {cursor: none;}
+.load {height:100%; width:100%; background-color:#fff; z-index:9999;}
+.loadt {position:fixed; top:0; bottom:0; left:0; right:0; margin-top:2%; margin-bottom:2%;}
+input.noborder {border:none;}
+.note {color:#C6CBC8;}
+audio.div:hover, audio.div:focus, audio.div:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.05);
+background-color:#F2F2F2;
+text-align:center;
+}
+audio.div
+{
+-webkit-transition:all 0.5s linear;
+-moz-transition:all 0.5s linear;
+-o-transition:all 0.5s linear;
+transition:all 0.5s linear;
+-moz-box-shadow: 2px 2px 4px 0px #006773;
+-webkit-box-shadow:  2px 2px 4px 0px #006773;
+box-shadow: 2px 2px 4px 0px #006773;
+-moz-border-radius:7px 7px 7px 7px ;
+-webkit-border-radius:7px 7px 7px 7px ;
+border-radius:7px 7px 7px 7px ;
+background-color:#F2F2F2;
+text-align:center;
+}
+.audio {position:absolute; bottom:0px; width:100%; height:80px; background-color:#81F8CC; text-align:center;}
+.nav-page-all {
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.nav-page-1 {
+  color: #55acee;
+  border: 2px #55acee solid;
+  background-color: #FFFFFF;
+  height: 250px;
+  width: 450px;
+}
+.nav-page-1:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+
+.nav-page-2 {
+  color: #2ecc71;
+  border: 2px #2ecc71 solid;
+  background-color: #FFFFFF;
+  height: 250px;
+  width: 450px;
+}
+
+.nav-page-2:hover {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.nav-page-3 {
+  color: #f1c40f;
+  border: 2px #f1c40f solid;
+  background-color: #FFFFFF;
+  height: 200px;
+  width: 300px;
+}
+
+.nav-page-3:hover {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.nav-page-4 {
+  color: #e74c3c;
+  border: 2px #e74c3c solid;
+  background-color: #FFFFFF;
+  height: 200px;
+  width: 300px;
+}
+
+.nav-page-4:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.nav-page-5 {
+  color: #e67e22;
+  border: 2px #e67e22 solid;
+  background-color: #FFFFFF;
+  height: 200px;
+  width: 300px;
+}
+
+.nav-page-5:hover {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.nav-page-6 {
+  color: #9b59b6;
+  border: 2px #9b59b6 solid;
+  background-color: #FFFFFF;
+  height: 150px;
+  width: 225px;
+}
+
+.nav-page-6:hover {
+  background-color: #9b59b6;
+  color: #fff;
+}
+.nav-page-7 {
+  color: #2ecc71;
+  border: 2px #2ecc71 solid;
+  background-color: #FFFFFF;
+  height: 150px;
+  width: 225px;
+}
+
+.nav-page-7:hover {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.box {width:90px; height:20px; border: 2px solid pink;}
+
+.toolmenu{
+    position:fixed;
+    height:200px;
+    background:#D0FF4D;
+    bottom:0px;
+    width:170px;
+    right:0px;
+    margin-right: -170px;
+    z-index:5;
+    border-radius: 5px;
+}
+.toolbox{
+    position:fixed;
+    width:40px;
+    height:80px;
+    right:-5px;
+    background:#4DFFD9;
+    bottom:120px;
+    border-radius: 6px;
+    color:#FFFFFF;
+}
+.toolbtn-1 {
+  cursor: pointer;
+  margin: 7px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+  color: #e67e22;
+  border: 2px #e67e22 solid;
+  background: #D0FF4D;
+}
+.toolbtn-1:hover {
+  cursor: pointer;
+  margin: 7px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 7px;
+  font-size: 16px;
+  text-align: center;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+  color: #D0FF4D;
+  background-color: #e67e22;
+}
+select.div {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select.div {padding-right:18px}
+}
+
+label.div {position:relative}
+label.div:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label.div:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+/* to make the text un-copy-able : */
+.nocopy
+{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none; 
+}
+
+/*---------selection setting !IMPORTANT!-----------*/
+::-moz-selection {background:orange;}
+::selection {background:orange;}
+
+.invisible {display:none;}
+@-webkit-keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+@keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+@-webkit-keyframes bg {
+    0%   {background-color:red;}
+    25%  {background-color:yellow;}
+    50%  {background-color:red;}
+    75%  {background-color:yellow;}
+    100% {background-color:red;}
+}
+@keyframes bg {
+    0%   {background-color:red;}
+    25%  {background-color:yellow;}
+    50%  {background-color:red;}
+    75%  {background-color:yellow;}
+    100% {background-color:red;}
+}
+@-webkit-keyframes bg1 {
+    0%   {background-color:#ADFFF3;}
+    25%  {background-color:#ADFFC6;}
+    50%  {background-color:#ADFFF3;}
+    75%  {background-color:#ADFFC6;}
+    100% {background-color:#ADFFF3;}
+}
+@keyframes bg1 {
+    0%   {background-color:#ADFFF3;}
+    25%  {background-color:#ADFFC6;}
+    50%  {background-color:#ADFFF3;}
+    75%  {background-color:#ADFFC6;}
+    100% {background-color:#ADFFF3;}
+}
+
+/* -----
+    Name:        fancy-radio
+    Description: Fancy Radios!
+    Author:      Unknown
+    Edit:        Legendword
+    Version:     1.0
+   -----
+*/
+
+div.radio {
+	clear: both;
+	margin: 0 50px;
+	text-align: left;
+}
+
+radio.label {
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4
+}
+
+/* hide input */
+input.radio:empty {
+	margin-left: -999px;
+}
+
+/* style label */
+input.radio:empty ~ label {
+	position: relative;
+	float: left;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 2em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input.radio:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 3px 0 0 3px;
+}
+
+/* toggle hover */
+input.radio:hover:not(:checked) ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+input.radio:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+/* toggle on */
+input.radio:checked ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #9CE2AE;
+	background-color: #4DCB6D;
+}
+
+input.radio:checked ~ label {
+	color: #777;
+}
+
+/* radio focus */
+input.radio:focus ~ label:before {
+	box-shadow: 0 0 0 3px #999;
+}
+
+/* End of "fancy-radio"
+===============================================  */
+
+
+/* -----
+    Name:        hl-buttons
+    Description: Hollow Buttons
+    Author:      Legendword
+    Version:     1.0
+   -----
+*/
+
+.hl-btn {
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 22px;
+  text-align: center;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.hl-btn:hover {
+  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+.hl-blue {
+  color: #55acee;
+  border: 2px #55acee solid;
+}
+
+.hl-blue:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+
+.hl-green {
+  color: #2ecc71;
+  border: 2px #2ecc71 solid;
+}
+
+.hl-green:hover {
+  color: #fff;
+  background-color: #2ecc71;
+}
+
+.hl-red {
+  color: #e74c3c;
+  border: 2px #e74c3c solid;
+}
+
+.hl-red:hover {
+  color: #fff;
+  background-color: #e74c3c;
+}
+
+.hl-purple {
+  color: #9b59b6;
+  border: 2px #9b59b6 solid;
+}
+
+.hl-purple:hover {
+  color: #fff;
+  background-color: #9b59b6;
+}
+
+.hl-orange {
+  color: #e67e22;
+  border: 2px #e67e22 solid;
+}
+
+.hl-orange:hover {
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.hl-yellow {
+  color: #f1c40f;
+  border: 2px #f1c40f solid;
+}
+
+.hl-yellow:hover {
+  color: #fff;
+  background-color: #f1c40f;
+}
+
+.hl-set {
+  padding-top: 30px;
+}
+/*
+to use the btn code above:
+first <div class="buttons">
+and <a class="btn red"></a>
+type different colors for "red" in the example
+*/
+
+/* End of "hl-buttons"
+===============================================  */
+
+
+
+/* -----                                        _______    
+    Name:        ph-buttons                     |      |    |     |
+    Description: Pixcil Hub Buttons             |      |    |     |
+    Author:      Pixcils®                       |______|    |_____|
+    Version:     1.0                            |           |     |
+    Edited by:   Legendword                     |           |     |
+    Edit Version:1.1 Final                      |           |     |
+   -----
+*/ 
+
+/*Big button class: */
+.ph-big {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 19px 39px 18px;
+    font-size: 18px;
+	
+}
+
+/*Normal button class: */
+.ph-normal {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 14px 14px 13px;
+    font-size: 16px;
+	
+}
+
+/*Small button class: */
+.ph-small {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 9px 9px 8px;
+    font-size: 12px;
+	
+}
+
+/*Tiny button class: */
+.ph-tiny {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 5px 5px 4px;
+    font-size: 8px;
+	
+}
+
+/*Green: */
+.ph-green {
+
+    border-color: #3AC162;
+	background-color: #5FCF80;
+
+}
+.ph-green:hover, .ph-green:focus, .ph-green:active {
+    background-color: #4BC970;
+    border-color: #3AC162;    
+}
+
+/*Blue: */
+.ph-blue {
+
+    border-color: #326E99;
+    background-color: #3F8ABF;
+}
+
+.ph-blue:hover, .ph-blue:focus, .ph-blue:active {
+    background-color: #397CAC;
+    border-color: #326E99;   
+}
+
+/*Orange: */
+.ph-orange {
+
+    border-color: #E2A129;
+    background-color: #FFBB4B;
+}
+
+.ph-orange:hover, .ph-orange:focus, .ph-orange:active {
+    background-color: #F4B43D;
+    border-color: #DCA02F;   
+}
+
+/*Grey: */
+.ph-grey {
+
+     background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+.ph-grey:hover, .ph-grey:focus, .ph-grey:active {
+    background-color: #B8BFC7;
+    border-color: #AAB3BB; 
+}
+
+/*Red: */
+.ph-red {
+
+    background-color: #ED5A5A !important;
+    border-color: #EA4343 !important;
+
+}
+.ph-red:hover, .ph-red:focus, .ph-red:active {
+    background: none repeat scroll 0 0 #EB4848 !important;
+    border-color: #E83131 !important;    
+}
+/* End of "ph-buttons"
+===============================================  */
+
+/* PACE.js CSS Settings */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #FF8000;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+/* PACE.js CSS END 
+   ================================================ */

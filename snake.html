@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html>
+<title>SnakeXenzia - Legendword</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="dependencies/style.css" />
+<script src="dependencies/ljs.js"></script>
+<script src="dependencies/jquery-1.10.2.js"></script>
+<script>
+//based on Legendword Square Core Code
+var player = [[250,3,4,1,4],[250,3,17,20,3]];
+    //FORMAT:    [ Milliseconds to auto-move (speed) , snake length , x-position , y-position , direction (1=up;2=down;3=left;4=right) ]
+var interv = [],
+    randomFood = 10,  //amount of random food at game start
+    foodCount = 0,
+    pause = true;
+
+window.HTMLDivElement.prototype.square = function(option,dt) {
+  if (option=="food"||option=="player1"||option=="player2"||option=="playerbody1"||option=="playerbody2") {this.setAttribute("id", option);}
+  else if (dt!==null&&dt=="data") {
+    this.setAttribute("data-num",option);
+    }
+  else {return false;}
+};
+window.HTMLDivElement.prototype.unsquare = function() {
+  this.removeAttribute("id");
+  this.removeAttribute("data-num");
+  this.setAttribute("class","square");
+};
+
+window.onload = function() {
+  l('outside').focus();
+  var xx = 0;
+  var yy = 0;
+  while (xx<21&&yy<20) {
+    doSquares(xx, yy);
+    if (xx==19) {
+      xx = 0;
+      yy++;
+      }
+    else {
+      xx++;
+      }
+    }
+  //keys detection
+  l('outside').addEventListener("keydown", function(e) {
+    switch(e.keyCode) {
+      case 13:
+        if (pause==true) {
+          go();
+          }
+        else {
+          pause = true;
+          }
+        break;
+      case 37:
+        dirc(3,1);
+        break;
+      case 38:
+        dirc(1,1);
+        break;
+      case 39:
+        dirc(4,1);
+        break;
+      case 40:
+        dirc(2,1);
+        break;
+      case 65:
+        dirc(3,2);
+        break;
+      case 87:
+        dirc(1,2);
+        break;
+      case 68:
+        dirc(4,2);
+        break;
+      case 83:
+        dirc(2,2);
+        break;
+      default:
+        //e.preventDefault();
+        break;
+      }
+    });
+  //initialize
+  initialize();
+  go();
+  /*
+  //show info click detection
+  l('infob').addEventListener("click", function() {
+    if (l('info').attributes['style']!==undefined) {
+      l('info').removeAttribute("style");
+      }
+    else {
+      l('info').setAttribute("style","display: none");
+      }
+    });
+  //restart game
+  l('restart').addEventListener("click", function() {
+    clearblocks();
+    initialize();
+    l('outside').focus();
+    });
+  */
+};
+
+function initialize() {
+//reset variables
+player = [[250,3,4,1,4],[250,3,17,20,3]];
+foodCount = 0;
+//default snakes
+setblock(1,1,"playerbody",1);
+setblock(1,1,3,false,"data");
+setblock(2,1,"playerbody",1);
+setblock(2,1,2,false,"data");
+setblock(3,1,"playerbody",1);
+setblock(3,1,1,false,"data");
+setblock(4,1,"player",1);
+setblock(20,20,"playerbody",2);
+setblock(20,20,3,false,"data");
+setblock(19,20,"playerbody",2);
+setblock(19,20,2,false,"data");
+setblock(18,20,"playerbody",2);
+setblock(18,20,1,false,"data");
+setblock(17,20,"player",2);
+//random food
+randomize(randomFood);
+}
+
+function doSquares(x, y, n) {
+var top = y * 40 + 10;
+var left = x * 40 + 10;
+var newsquare = document.createElement("div");
+newsquare.setAttribute("class", "square");
+newsquare.setAttribute("style", "position:absolute;top:"+top+"px;left:"+left+"px;");
+l('outside').appendChild(newsquare);
+}
+
+function dirc(d,pl) {
+var dr = player[pl-1][4];
+if ((dr==1&&d==2)||(dr==2&&d==1)||(dr==3&&d==4)||(dr==4&&d==3)) {return false;}
+else {player[pl-1][4] = d;}
+}
+
+function move(pl) {
+switch(player[pl-1][4]) {
+  case 1:
+    var ncy = player[pl-1][3] - 1;
+    if (checkb(ncy,1)!=false) {ncy = checkb(ncy,1);}
+    var o = conv(player[pl-1][2], player[pl-1][3]);
+    var n = conv(player[pl-1][2], ncy);
+    player[pl-1][3] = ncy;
+    break;
+  case 2:
+    var ncy = player[pl-1][3] + 1;
+    if (checkb(ncy,1)!=false) {ncy = checkb(ncy,1);}
+    var o = conv(player[pl-1][2], player[pl-1][3]);
+    var n = conv(player[pl-1][2], ncy);
+    player[pl-1][3] = ncy;
+    break;
+  case 3:
+    var ncx = player[pl-1][2] - 1;
+    if (checkb(ncx,1)!=false) {ncx = checkb(ncx,1);}
+    var o = conv(player[pl-1][2], player[pl-1][3]);
+    var n = conv(ncx, player[pl-1][3]);
+    player[pl-1][2] = ncx;
+    break;
+  case 4:
+    var ncx = player[pl-1][2] + 1;
+    if (checkb(ncx,1)!=false) {ncx = checkb(ncx,1);}
+    var o = conv(player[pl-1][2], player[pl-1][3]);
+    var n = conv(ncx, player[pl-1][3]);
+    player[pl-1][2] = ncx;
+    break;
+  }
+if (checkb([n,pl],2)==true) {if (pause==false){setTimeout("move("+pl+")",player[pl-1][0]);} return false;}
+if (checkb([n,pl],3)!=false) {eatbody(pl,checkb([n,pl],3));}
+var food = false;
+if (getInfo(n)=="food") {
+  food = true;
+  }
+l('square','class',o).square("playerbody"+pl);
+l('square','class',n).square("player"+pl);
+for (var i=player[pl-1][1];i>0;i--) {
+  document.querySelector("#playerbody"+pl+"[data-num='"+i+"']").setAttribute("data-num",i+1);
+  }
+l('square','class',o).square(1,"data");
+if (food==false) {
+  document.querySelector("#playerbody"+pl+"[data-num='"+(player[pl-1][1]+1)+"']").unsquare();
+  }
+else {
+  player[pl-1][1]++;
+  foodCount--;
+  if (foodCount==2) {
+    randomize(4);
+    }
+  changeSpeed(pl);
+  }
+if (pause==false) {
+  setTimeout("move("+pl+")", player[pl-1][0]);
+  }
+}
+
+function randomize(c) {
+for (var i=0;i<c;i++) {
+  var n = randomnum(0,399);
+  if (getInfo(n)!=false) {i--;}
+  else {
+    l('square','class',n).square("food");
+    }
+  }
+foodCount = foodCount + c;
+}
+
+function randomnum(a,b) {
+return Math.floor(Math.random() * b) + a;
+}
+
+function checkb(input, mode) {
+if (mode==1) {
+  if (input==0) {
+    return 20;
+    }
+  else if (input==21) {
+    return 1;
+    }
+  else {
+    return false;
+    }
+  }
+else if (mode==2) {
+  if (getInfo(input[0])=="playerbody"+input[1]) {
+    if (player[input[1]-1][1]==0) {return false;}
+    gameover(input[1],1); //bite yourself? hhh...
+    return true;
+    }
+  else if (getInfo(input[0])=="player"+(input[1]==1?2:1)) {
+    gameover(input[1],2); //eat head? ...
+    return true;
+    }
+  else {
+    return false;
+    }
+  }
+else if (mode==3) {
+  if (getInfo(input[0])=="playerbody"+(input[1]==1?2:1)) {
+    return l('square','class',input[0]).dataset.num;
+    }
+  else {
+    return false;
+    }
+  }
+}
+
+function changeSpeed(pl) {
+var fc = player[pl-1][1];
+var sp;
+if (fc>5) {
+  sp = 350;
+  }
+else if (fc==0) {
+  sp = 100;
+  }
+else {
+  sp = 100 + 50 * fc;
+  }
+player[pl-1][0] = sp;
+}
+
+function eatbody(pl, num) {
+var p = (pl==1?2:1);
+for (var i=player[p-1][1];i>=num;i--) {
+  document.querySelector("#playerbody"+p+"[data-num='"+i+"']").unsquare();
+  }
+player[p-1][1] = num - 1;
+changeSpeed(p);
+}
+
+function getInfo(ps) {
+return l('square','class',ps).attributes['id']==undefined?false:l('square','class',ps).attributes['id'].nodeValue;
+}
+
+function conv(x, y) {
+x = parseInt(x);
+y = parseInt(y);
+var nrow = y * 20 - 20;
+var ne = nrow + x - 1;
+return ne;
+}
+
+function setblock(xn,yn,option,pl,d) {
+var n = conv(xn, yn);
+var st = option;
+if (pl!==null&&pl!==false) {st = option+pl.toString();}
+else if (d!==null&&d=="data") {l('square','class',n).square(st,"data");return false;}
+l('square','class',n).square(st);
+}
+
+function gameover(pl, type) {
+var win;
+switch (type) {
+  case 1:
+    //suicide
+    alert("Game Over!\nPlayer "+pl+" suicided.");
+    win = (pl==1?2:1);
+    break;
+  case 2:
+    if (player[0][1]>player[1][1]) {alert("Game Over!\nPlayer 1 ate player 2.");win = 1;}
+    else if (player[0][1]<player[1][1]) {alert("Game Over!\nPlayer 2 ate player 1.");win = 2;}
+    else {alert("Game Over!\nPlayer "+pl+" ate player "+(pl==1?2:1)+".");win = pl;}
+    break;
+  }
+pause = true;
+if (confirm("Restart the game?\n")) {
+  clearblocks();
+  initialize();
+  l('score'+win).innerHTML = parseInt(l('score'+win).innerHTML) + 1;
+  setTimeout("go();",500);
+  l('outside').focus();
+  }
+}
+
+function go() {
+if (pause==true) {
+  pause = false;
+  move(1);
+  move(2);
+  }
+}
+
+function clearblocks() {
+for (var i=0;i<400;i++) {
+  l('square','class',i).unsquare();
+  }
+}
+</script>
+<style>
+/* #outside {position:fixed;bottom:0;top:0;left:0;right:0;margin:auto;height:800px;width:800px;} */
+.square {width:38px;height:38px;border:1px solid #000;}
+#square {background-color:#000;}
+#food {background-color:red;}
+#player1 {background-color:blue;}
+#player2 {background-color:#0DFA00;}
+#playerbody1 {background-color:#070AB7;}
+#playerbody2 {background-color:#079300;}
+h6#infon {position:absolute;bottom:5px;left:5px;}
+h6#info {position:absolute;bottom:5px;left:550px;}
+p#level {position:absolute;top:10px;right:10px;color:#FD48FF;font-size:20px;}
+p#clevel {position:absolute;bottom:50px;left:10px;}
+#score {position:absolute;top:5px;right:5px;cursor:default;}
+</style>
+</head>
+<body>
+<p id="level"></p>
+<div id="outside" tabindex="1"></div>
+<br />
+<h6 id="score"><span id="score1" title="Player 1">0</span> : <span id="score2" title="Player 2">0</span></h6>
+</body>
+</html>
